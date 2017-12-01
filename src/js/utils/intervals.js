@@ -67,7 +67,9 @@ function getIntervals(maxValue, minValue=0) {
 	normalMaxValue = normalMaxValue.toFixed(6);
 
 	let intervals = getRangeIntervals(normalMaxValue, normalMinValue);
-	intervals = intervals.map(value => value * Math.pow(10, exponent));
+
+	intervals = intervals.map(value => (value * Math.pow(10, exponent)).toFixed(1));
+
 	return intervals;
 }
 

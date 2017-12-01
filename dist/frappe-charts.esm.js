@@ -587,7 +587,9 @@ function getIntervals(maxValue, minValue=0) {
 	normalMaxValue = normalMaxValue.toFixed(6);
 
 	let intervals = getRangeIntervals(normalMaxValue, normalMinValue);
-	intervals = intervals.map(value => value * Math.pow(10, exponent));
+
+	intervals = intervals.map(value => (value * Math.pow(10, exponent)).toFixed(1));
+
 	return intervals;
 }
 
@@ -605,7 +607,6 @@ function calcIntervals(values, withMinimum=false) {
 
 	function getPositiveFirstIntervals(maxValue, absMinValue) {
 		let intervals = getIntervals(maxValue);
-
 		let intervalSize = intervals[1] - intervals[0];
 
 		// Then unshift the negative values
